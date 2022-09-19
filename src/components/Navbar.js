@@ -1,0 +1,72 @@
+import React from 'react'
+import lapetite from '../img/lapetite.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas, faBars, faCartShopping)
+
+const Navbar = () => {
+  return (
+    <nav className="navbar flex flex-wrap bg-[#ff5d5d] text-white overflow-hidden md:flex-row md:flex-nowrap md:justify-between md:px-10">
+        <div className='img-logo w-[50%] md:w-auto'>
+            <img className="h-20" src={lapetite} alt="La petite"/>
+        </div>
+        <div className='burguer w-[50%] flex justify-end md:hidden'>
+            <button onClick={expandNav} className="burguer-button mr-5">
+                <FontAwesomeIcon icon="fa-solid fa-bars"/> 
+            </button>
+        </div>
+        <div className='nav-link text-[18px] flex flex-col items-center space-y-2 pb-5 w-[100%] md:flex-row md:w-auto md:items-center md:pb-0 md:space-y-0'>
+            <a href="../App.js" className='md:mr-3'>Inicio</a>
+            <a href="../App.js" className='md:mr-3'>Ofertas</a>
+            <a href="../App.js" className='md:mr-3'>About</a> 
+            <a href="../App.js" className='md:mr-3'>Producto</a> 
+            <a href="../App.js" className='md:mr-3'>Contacto</a> 
+            <a href="../App.js" className='md:mr-3'><FontAwesomeIcon icon="fa-solid fa-cart-shopping" /></a> 
+        </div>
+    </nav>
+  )
+}
+
+let expanded = false,
+    $navbar,
+    $navLink,
+    navbarH,
+    navLinkH;
+
+
+window.addEventListener('load', () => {
+
+    $navbar = document.querySelector('.navbar');
+    $navLink = document.querySelector('.nav-link');
+    navbarH = $navbar.clientHeight;
+    navLinkH = $navLink.clientHeight;
+
+    if(window.innerWidth < 768) {
+        $navbar.style.height = navbarH - navLinkH + 'px'
+    }
+
+})
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && expanded) {
+        $navbar.style.height = navbarH - navLinkH + 'px';
+        expanded = false;
+    }
+})
+
+const expandNav = () => {
+    if (!expanded) {
+        $navbar.style.height = navbarH + 'px'
+        expanded = true
+    } else {
+        $navbar.style.height = navbarH - navLinkH + 'px'
+        expanded = false
+    }
+    
+}
+
+export default Navbar
