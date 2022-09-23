@@ -1,5 +1,6 @@
-import { createContext, useReducer } from 'react'
+import { createContext, useReducer, useEffect } from 'react'
 import { shoppingInitialState, shoppingReducer } from "../reducer/shoppingReducer";
+import { TYPES } from '../actions/shoppingActions';
 
 
 export const ShoppingContext = createContext()
@@ -8,16 +9,14 @@ const ShoppingContextProvider = (props) => {
 
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
 
-    const addToCart = () => {console.log('Agregado papu')};
+    const addToCart = (id) => dispatch({type: TYPES.ADD_TO_CART, payload: id});
 
-    const deleteFromCart = () => {console.log('Chupame la verga')};
+    const deleteFromCart = () => {console.log('')};
 
-    const clearCart = () => {console.log('alla le limpian bien el ojete')};
-
-    const data = [state,addToCart,deleteFromCart,clearCart]
+    const clearCart = () => {console.log('')};
 
   return (
-    <ShoppingContext.Provider value={data}>
+    <ShoppingContext.Provider value={{state,addToCart,deleteFromCart,clearCart}}>
         {props.children}
     </ShoppingContext.Provider>
   )

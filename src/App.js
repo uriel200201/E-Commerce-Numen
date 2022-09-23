@@ -6,8 +6,8 @@ import './navbar.css'
 
 function App() {
 	return <>
-		<Navbar/>
 		<ShoppingContextProvider>
+			<Navbar/>
 			<ProductSection/>
 		</ShoppingContextProvider>
 	</>

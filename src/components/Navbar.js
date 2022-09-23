@@ -28,9 +28,7 @@ const Navbar = () => {
             <a href="../App.js" className='md:mr-3'>Producto</a> 
             <a href="../App.js" className='md:mr-3'>Contacto</a> 
             <a href="#" className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end '><FontAwesomeIcon onClick={dropdown} icon="fa-solid fa-cart-shopping" />
-                <ShoppingContextProvider>
-                    <ShoppingCart />
-                </ShoppingContextProvider>
+                <ShoppingCart />
             </a> 
         </div>
     </nav>

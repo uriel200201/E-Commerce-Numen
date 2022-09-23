@@ -1,15 +1,13 @@
-import Product from './Product'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { ShoppingContext } from './ShoppingContextProvider'
+import Product from './Product'
 
 
 
 
 const ProductSection = () => {
 
-  const data = useContext(ShoppingContext)
-
-  const [ state , addToCart, deleteFromCart, clearCart ] = data;
+  const {state , addToCart} = useContext(ShoppingContext)
 
   return (
     <section className='section-products'>
