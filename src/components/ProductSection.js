@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext} from 'react'
 import { ShoppingContext } from './ShoppingContextProvider'
 import Product from './Product'
 
@@ -8,7 +8,6 @@ import Product from './Product'
 const ProductSection = () => {
 
   const {state , addToCart} = useContext(ShoppingContext)
-
   return (
     <section className='section-products'>
         <h2>Tortas y alfajores</h2>

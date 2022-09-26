@@ -2,7 +2,7 @@ import React from 'react'
 
 const CartItem = ({info, deleteFromCart}) => {
 
-    let {id, name, price, quantity} = info;
+    let { id, name, price, quantity} = info;
 
 
   return (
@@ -16,8 +16,8 @@ const CartItem = ({info, deleteFromCart}) => {
         <div className="space-y-[10px]">
             <span>${price} x {quantity} = ${price * quantity}</span>
             <div className="options flex justify-around">
-                <button onClick={deleteFromCart} className="p-[5px] rounded-[3px] hover:bg-red-400 hover:text-white">Eliminar uno</button>
-                <button onClick={deleteFromCart} className="p-[5px] rounded-[3px] hover:bg-red-400 hover:text-white">Eliminar todos</button>
+                <button onClick={() => deleteFromCart(id)} className="p-[5px] rounded-[3px] hover:bg-red-400 hover:text-white">Eliminar uno</button>
+                <button onClick={() => deleteFromCart(id, true)} className="p-[5px] rounded-[3px] hover:bg-red-400 hover:text-white">Eliminar todos</button>
             </div>
         </div>
     </div>

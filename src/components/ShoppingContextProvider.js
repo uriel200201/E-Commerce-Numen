@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from 'react'
+import { createContext, useReducer } from 'react'
 import { shoppingInitialState, shoppingReducer } from "../reducer/shoppingReducer";
 import { TYPES } from '../actions/shoppingActions';
 
@@ -11,9 +11,15 @@ const ShoppingContextProvider = (props) => {
 
     const addToCart = (id) => dispatch({type: TYPES.ADD_TO_CART, payload: id});
 
-    const deleteFromCart = () => {console.log('')};
+    const deleteFromCart = (id, all = false) => {
+      if(all) {
+        dispatch({type: TYPES.REMOVE_ALL_PRODUCTS, payload:id})
+      } else {
+        dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})
+      }
+    };
 
-    const clearCart = () => {console.log('')};
+    const clearCart = () => {dispatch({type: TYPES.CLEAR_CART})};
 
   return (
     <ShoppingContext.Provider value={{state,addToCart,deleteFromCart,clearCart}}>

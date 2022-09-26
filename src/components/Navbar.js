@@ -1,5 +1,4 @@
 import React from 'react'
-import ShoppingContextProvider from './ShoppingContextProvider'
 import lapetite from '../img/lapetite.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -27,9 +26,9 @@ const Navbar = () => {
             <a href="../App.js" className='md:mr-3'>About</a> 
             <a href="../App.js" className='md:mr-3'>Producto</a> 
             <a href="../App.js" className='md:mr-3'>Contacto</a> 
-            <a href="#" className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end '><FontAwesomeIcon onClick={dropdown} icon="fa-solid fa-cart-shopping" />
+            <button className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end '><FontAwesomeIcon onClick={dropdown} icon="fa-solid fa-cart-shopping" />
                 <ShoppingCart />
-            </a> 
+            </button> 
         </div>
     </nav>
   )
@@ -39,7 +38,6 @@ let expanded = false,
     $navbar,
     $navLink,
     $dropdown,
-    $dropdownItems,
     navbarH,
     navLinkH;
 
@@ -50,8 +48,6 @@ window.addEventListener('load', () => {
     $navbar = document.querySelector('.navbar');
     $navLink = document.querySelector('.nav-link');
     $dropdown = document.querySelector('.dropdown-menu');
-    $dropdownItems = document.querySelector('.dropdown-items')
-    $dropdownItems.style.maxHeight = `${$dropdownItems.children[0].clientHeight * 2}px`
     navbarH = $navbar.clientHeight;
     navLinkH = $navLink.clientHeight;
 
@@ -60,6 +56,8 @@ window.addEventListener('load', () => {
     }
 
 })
+
+
 
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768 && expanded) {
