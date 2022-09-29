@@ -1,4 +1,5 @@
 import  Navbar  from './components/Navbar'
+import ProductSection from './components/ProductSection'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
 import './navbar.css'
 
@@ -7,9 +8,7 @@ function App() {
 	return <>
 		<ShoppingContextProvider>
 			<Navbar/>
-
-			{/* Componente de tarjetas para carrito aqui */}
-
+			<ProductSection />
 		</ShoppingContextProvider>
 	</>
 }
