@@ -1,17 +1,16 @@
-import  Navbar  from './components/Navbar'
+import  Navbar  from './components/navbar/Navbar'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
-import './navbar.css'
+import './css/navbar.css'
 
 
 function App() {
 	return <>
 		<ShoppingContextProvider>
 			<Navbar />
-
+			
 			{/* Componentes para productos del carrito iran dentro de ShoppingContextProvider */}
 
 		</ShoppingContextProvider>
-
 	</>
 }
 

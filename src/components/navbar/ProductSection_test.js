@@ -1,6 +1,6 @@
 import { useContext} from 'react'
-import { ShoppingContext } from './ShoppingContextProvider'
-import Product from './Product'
+import { ShoppingContext } from '../ShoppingContextProvider'
+import Product from './Product_test'
 
 
 

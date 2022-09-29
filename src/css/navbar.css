@@ -2,6 +2,10 @@
     transition: height 300ms;
 }
 
-.dropdown-menu{
+.nav-link > li {
+    list-style: none;
+}
+
+.dropdown-menu {
     transition: opacity 0.3s;
 }

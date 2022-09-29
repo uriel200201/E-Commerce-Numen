@@ -1,5 +1,5 @@
 import { useContext} from "react";
-import { ShoppingContext } from './ShoppingContextProvider'
+import { ShoppingContext } from '../ShoppingContextProvider'
 import CartItem from './CartItem';
 
 

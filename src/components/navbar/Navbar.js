@@ -1,5 +1,5 @@
 import React from 'react'
-import lapetite from '../img/lapetite.png'
+import lapetite from '../../img/lapetite.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -21,14 +21,15 @@ const Navbar = () => {
             </button>
         </div>
         <div className='nav-link text-[18px] flex flex-col items-center space-y-2 pb-5 w-[100%] md:flex-row md:w-auto md:items-center md:pb-0 md:space-y-0'>
-            <a href="../App.js" className='md:mr-3'>Inicio</a>
-            <a href="../App.js" className='md:mr-3'>Ofertas</a>
-            <a href="../App.js" className='md:mr-3'>About</a> 
-            <a href="../App.js" className='md:mr-3'>Producto</a> 
-            <a href="../App.js" className='md:mr-3'>Contacto</a> 
-            <button className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end '><FontAwesomeIcon onClick={dropdown} icon="fa-solid fa-cart-shopping" />
+            <li><a href="../App.js" className='md:mr-3'>Inicio</a></li>
+            <li><a href="../App.js" className='md:mr-3'>Ofertas</a></li>
+            <li><a href="../App.js" className='md:mr-3'>About</a></li> 
+            <li><a href="../App.js" className='md:mr-3'>Producto</a></li> 
+            <li><a href="../App.js" className='md:mr-3'>Contacto</a></li> 
+            <li className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end'>
+                <button onClick={dropdown}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" /></button> 
                 <ShoppingCart />
-            </button> 
+            </li>
         </div>
     </nav>
   )
