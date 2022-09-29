@@ -6,7 +6,7 @@ const CartItem = ({info, deleteFromCart}) => {
 
 
   return (
-    <div className="dropdown-item p-1 w-[250px] text-center rounded-[3px] space-y-[10px]">
+    <div className="dropdown-item p-1 text-center rounded-[3px] space-y-[10px]">
         <div className="flex flex-col items-center space-y-[10px]">
             <div className="w-1/2 flex items-center bg-black">
                 <img className="w-full h-[100px]" src="product_img" alt="" />
