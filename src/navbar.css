@@ -1,0 +1,7 @@
+.navbar {
+    transition: height 300ms;
+}
+
+.dropdown-menu{
+    transition: opacity 0.3s;
+}
