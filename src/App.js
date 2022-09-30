@@ -1,4 +1,4 @@
-import Contacto from './components/contacto/Formulario'
+import Contacto from './components/contacto/Contacto'
 import Navbar from './components/navbar/Navbar'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
 import './css/navbar.css'

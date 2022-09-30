@@ -3,7 +3,7 @@ import Formulario from './Formulario'
 
 const Contacto = () => {
 	return (
-		<div>
+		<div className='grid md:grid-cols-2 md:gap-4'>
 			<Formulario />
 		</div>
 	)
