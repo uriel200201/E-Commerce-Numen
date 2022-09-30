@@ -63,15 +63,58 @@ const ShoppingContextProvider = (props) => {
     }
   };
 
-  const deleteFromCart = (id, all = false) => {
-    if(all) {
-      dispatch({type: TYPES.REMOVE_ALL_PRODUCTS, payload:id})
+  const deleteFromCart = async (id, all = false) => {
+    
+    let cartItem = state.cart.find(item => item.id === id)
+    let endpoint = `http://localhost:3001/cart/${cartItem.id}`
+
+    if(!all) {
+      let options = {
+        headers: { "content-type": "application/json" },
+      }
+
+      if (cartItem.quantity > 1) {
+        options.method = "PUT"
+        cartItem.quantity = cartItem.quantity - 1;
+        options.data = JSON.stringify(cartItem)
+      } else {
+        options.method = "DELETE"
+      }
+
+      let res = await axios(endpoint, options)
+
+      // dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})
+
+      updateState()
     } else {
-      dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})
+
+      let options = {
+        method: "DELETE",
+        headers: { "content-type": "application/json" }
+      }
+
+      let res = await axios(endpoint, options)
+
+      // dispatch({type: TYPES.REMOVE_ALL_PRODUCTS, payload:id})
+      updateState()
     }
   };
 
-  const clearCart = () => {dispatch({type: TYPES.CLEAR_CART})};
+  const clearCart = async () => {
+
+    await state.cart.forEach(item => {
+     let endpoint = `http://localhost:3001/cart/${item.id}`
+      let options = {
+        method: "DELETE",
+        headers: { "content-type": "application/json" }
+      }
+      let res = axios(endpoint, options)
+    });
+  
+    
+      // dispatch({type: TYPES.CLEAR_CART})
+      updateState()
+  };
 
   return (
     <ShoppingContext.Provider value={{state,addToCart,deleteFromCart,clearCart}}>
