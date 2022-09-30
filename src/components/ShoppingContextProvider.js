@@ -14,7 +14,6 @@ const ShoppingContextProvider = (props) => {
       const productsURL = "http://localhost:3001/products";
       const cartURL = "http://localhost:3001/cart";
       const resProducts = await axios.get(productsURL);
-      console.log(resProducts)
       const resCart = await axios.get(cartURL);
       const newProduct = await resProducts.data
       const newCartItem = await resCart.data
@@ -26,7 +25,43 @@ const ShoppingContextProvider = (props) => {
     updateState()
   }, [])
     
-  const addToCart = (id) => dispatch({type: TYPES.ADD_TO_CART, payload: id});
+  const addToCart = async (id) => {
+    let newItem = state.products.find(product => product.id === id)
+    let itemInCart = state.cart.find(item => item.id === newItem.id)
+
+
+
+    let endpoint
+    let options = {
+        headers: { "content-type": "application/json" },
+    }
+
+    if (!itemInCart) {
+        options.method = "POST"
+        endpoint = `http://localhost:3001/cart`
+        newItem.quantity = 1;
+        options.data = JSON.stringify(newItem)
+    } else {
+        options.method = "PUT"
+        endpoint = `http://localhost:3001/cart/${itemInCart.id}`
+        itemInCart.quantity = itemInCart.quantity + 1;
+        options.data = JSON.stringify(itemInCart)
+    }
+
+
+    let res = await axios(endpoint, options)
+    console.log(res)
+
+    
+
+    // dispatch({type: TYPES.ADD_TO_CART, payload: id})
+    updateState()
+    
+    let $dropdownItems = document.querySelector('.dropdown-items')
+    if (state.cart.length > 0) {
+      $dropdownItems.style.maxHeight = `${$dropdownItems.children[0].clientHeight * 2}px`
+    }
+  };
 
   const deleteFromCart = (id, all = false) => {
     if(all) {
