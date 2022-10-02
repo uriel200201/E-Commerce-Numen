@@ -15,25 +15,9 @@ export function shoppingReducer (state, action) {
             }
         }
         case TYPES.ADD_TO_CART: {
-            let newItem = state.products.find(product => product.id === action.payload)
-            let itemInCart = state.cart.find((item) => item.id === newItem.id);
-            let $dropdownItems = document.querySelector('.dropdown-items')
-            if (state.cart.length > 0) {
-                $dropdownItems.style.maxHeight = `${$dropdownItems.children[0].clientHeight * 2}px`
-            }
-            return itemInCart
-            ? {
+            return {
                 ...state,
-                cart: state.cart.map((item) => 
-                item.id === newItem.id
-                ? {...item, quantity: item.quantity + 1}
-                : item
-                ),
             }
-            : {
-                ...state,
-                cart:[...state.cart,{...newItem, quantity: 1}]
-            };
         } 
         case TYPES.REMOVE_ONE_PRODUCT: {
             let itemToDelete = state.cart.find((item) => item.id === action.payload);
