@@ -3,8 +3,9 @@ import Formulario from './Formulario'
 
 const Contacto = () => {
 	return (
-		<div className='grid md:grid-cols-2 md:gap-4'>
+		<div className='flex flex-row items-center justify-around'>
 			<Formulario />
+			{/* TODO: Agregar componentes de mapas y redes sociales */}
 		</div>
 	)
 }
