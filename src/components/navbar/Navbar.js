@@ -25,7 +25,7 @@ const Navbar = () => {
             <li><a href="../App.js" className='md:mr-3'>Ofertas</a></li>
             <li><a href="../App.js" className='md:mr-3'>About</a></li> 
             <li><a href="../App.js" className='md:mr-3'>Producto</a></li> 
-            <li><a href="../App.js" className='md:mr-3'>Contacto</a></li> 
+            <li><a href="#Contacto" className='md:mr-3'>Contacto</a></li> 
             <li className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end'>
                 <button onClick={dropdown}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" /></button> 
                 <ShoppingCart />
@@ -39,6 +39,7 @@ let expanded = false,
     $navbar,
     $navLink,
     $dropdown,
+    $dropdownItems,
     navbarH,
     navLinkH;
 
@@ -49,16 +50,17 @@ window.addEventListener('load', () => {
     $navbar = document.querySelector('.navbar');
     $navLink = document.querySelector('.nav-link');
     $dropdown = document.querySelector('.dropdown-menu');
+    $dropdownItems = document.querySelector('.dropdown-items')
     navbarH = $navbar.clientHeight;
     navLinkH = $navLink.clientHeight;
+
+    $dropdownItems.style.maxHeight = '460px'
 
     if(window.innerWidth < 768) {
         $navbar.style.height = navbarH - navLinkH + 'px'
     }
 
 })
-
-
 
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768 && expanded) {
@@ -78,8 +80,8 @@ const expandNav = () => {
         }
         expanded = false
     }
-    
 }
+
 
 const dropdown = () => {
     if (!expandeddrop) {

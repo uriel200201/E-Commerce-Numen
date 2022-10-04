@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    transition: height 300ms;
+}
+
+.nav-link > li {
+    list-style: none;
+}
+
+.dropdown-menu {
+    transition: opacity 0.3s;
+}
+
+.home {
+    flex-grow: 1;
+    background-image: url('../img/home_bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+}
+
+.home-text {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 24px;
+    text-shadow: black 2px 2px 2px;
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    .home {
+        background-position: 50%;
+    }
+}

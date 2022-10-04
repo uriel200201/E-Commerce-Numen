@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from 'react'
+import { createContext, useReducer, useEffect, useState } from 'react'
 import { shoppingInitialState, shoppingReducer } from "../reducer/shoppingReducer";
 import { TYPES } from '../actions/shoppingActions';
 import axios from 'axios'
@@ -9,6 +9,7 @@ export const ShoppingContext = createContext()
 const ShoppingContextProvider = (props) => {
 
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
+  const [loading, setLoading] = useState(false)
 
   const updateState = async () => {
       const productsURL = "http://localhost:3001/products";
@@ -22,10 +23,15 @@ const ShoppingContextProvider = (props) => {
   }
   
   useEffect(() => {
+    setLoading(true)
     updateState()
+    setLoading(false)
   }, [])
     
   const addToCart = async (id) => {
+
+    setLoading(true)
+
     let newItem = state.products.find(product => product.id === id)
     let itemInCart = state.cart.find(item => item.id === newItem.id)
 
@@ -48,22 +54,19 @@ const ShoppingContextProvider = (props) => {
         options.data = JSON.stringify(itemInCart)
     }
 
-
-    let res = await axios(endpoint, options)
-    console.log(res)
-
-    
+    await axios(endpoint, options)
 
     // dispatch({type: TYPES.ADD_TO_CART, payload: id})
-    updateState()
-    
-    let $dropdownItems = document.querySelector('.dropdown-items')
-    if (state.cart.length > 0) {
-      $dropdownItems.style.maxHeight = `${$dropdownItems.children[0].clientHeight * 2}px`
-    }
+
+    setTimeout(() => {
+      updateState()
+      setLoading(false)
+    }, 500)
   };
 
   const deleteFromCart = async (id, all = false) => {
+
+    setLoading(true)
     
     let cartItem = state.cart.find(item => item.id === id)
     let endpoint = `http://localhost:3001/cart/${cartItem.id}`
@@ -81,11 +84,10 @@ const ShoppingContextProvider = (props) => {
         options.method = "DELETE"
       }
 
-      let res = await axios(endpoint, options)
+      await axios(endpoint, options)
 
       // dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})
 
-      updateState()
     } else {
 
       let options = {
@@ -93,14 +95,21 @@ const ShoppingContextProvider = (props) => {
         headers: { "content-type": "application/json" }
       }
 
-      let res = await axios(endpoint, options)
+      await axios(endpoint, options)
 
       // dispatch({type: TYPES.REMOVE_ALL_PRODUCTS, payload:id})
-      updateState()
+
     }
+
+    setTimeout(() => {
+      updateState()
+      setLoading(false)
+    }, 500)
   };
 
   const clearCart = async () => {
+
+    setLoading(true)
 
     await state.cart.forEach(item => {
      let endpoint = `http://localhost:3001/cart/${item.id}`
@@ -108,16 +117,18 @@ const ShoppingContextProvider = (props) => {
         method: "DELETE",
         headers: { "content-type": "application/json" }
       }
-      let res = axios(endpoint, options)
+      axios(endpoint, options)
     });
-  
     
       // dispatch({type: TYPES.CLEAR_CART})
+    setTimeout(() => {
       updateState()
+      setLoading(false)
+    }, 500)
   };
 
   return (
-    <ShoppingContext.Provider value={{state,addToCart,deleteFromCart,clearCart}}>
+    <ShoppingContext.Provider value={{state,addToCart,deleteFromCart,clearCart,loading}}>
         {props.children}
     </ShoppingContext.Provider>
   )
