@@ -8,7 +8,6 @@ function App() {
 	return <>
 		<ShoppingContextProvider>
 			<Header />
-			<ProductSection />
 			{/* Componentes para productos del carrito iran dentro de ShoppingContextProvider */}
 
 		</ShoppingContextProvider>

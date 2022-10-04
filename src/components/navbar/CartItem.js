@@ -6,7 +6,6 @@ const CartItem = ({info, deleteFromCart}) => {
 
     const { id, name, price, quantity} = info;
     const { loading } = useContext(ShoppingContext)
-    console.log(loading)
 
 
   return (

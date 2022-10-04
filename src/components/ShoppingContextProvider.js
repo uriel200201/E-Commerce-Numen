@@ -10,6 +10,7 @@ const ShoppingContextProvider = (props) => {
 
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
   const [loading, setLoading] = useState(false)
+  const delay = 100
 
   const updateState = async () => {
       const productsURL = "http://localhost:3001/products";
@@ -61,7 +62,7 @@ const ShoppingContextProvider = (props) => {
     setTimeout(() => {
       updateState()
       setLoading(false)
-    }, 500)
+    }, delay)
   };
 
   const deleteFromCart = async (id, all = false) => {
@@ -104,7 +105,7 @@ const ShoppingContextProvider = (props) => {
     setTimeout(() => {
       updateState()
       setLoading(false)
-    }, 500)
+    }, delay)
   };
 
   const clearCart = async () => {
@@ -124,7 +125,7 @@ const ShoppingContextProvider = (props) => {
     setTimeout(() => {
       updateState()
       setLoading(false)
-    }, 500)
+    }, delay)
   };
 
   return (

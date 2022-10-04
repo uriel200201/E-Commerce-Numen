@@ -6,6 +6,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import ShoppingCart from './ShoppingCart'
+import ItemCount from './ItemCount'
 
 library.add(fas, faBars, faCartShopping)
 
@@ -27,7 +28,7 @@ const Navbar = () => {
             <li><a href="../App.js" className='md:mr-3'>Producto</a></li> 
             <li><a href="#Contacto" className='md:mr-3'>Contacto</a></li> 
             <li className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end'>
-                <button onClick={dropdown}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" /></button> 
+                <button className='relative flex justify-center items-center' onClick={dropdown}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" size='xl' /><ItemCount/></button> 
                 <ShoppingCart />
             </li>
         </div>
