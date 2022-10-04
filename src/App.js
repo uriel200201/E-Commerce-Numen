@@ -1,5 +1,4 @@
 import Header from './components/Header'
-import ProductSection from './components/navbar/ProductSection_test'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
 import './css/header.css'
 

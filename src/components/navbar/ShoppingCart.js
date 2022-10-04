@@ -15,7 +15,7 @@ const ShoppingCart = () => {
             <div className="dropdown-items overflow-y-scroll">
               {state.cart.map((item, index) => <CartItem key={index} info={item} deleteFromCart={deleteFromCart}/>)}
             </div>
-            <div className="w-11/12 pt-2 my-2 border-t border-black">
+            <div className="w-11/12 pt-2 my-2 border-t-2 border-[#ff9f9f]">
               <button onClick={clearCart} className="w-full p-[5px] bg-red-400 text-white rounded-[3px] hover:bg-red-500">{loading ? <Loader /> : <span>Clear cart</span>}</button>
             </div>
         </div>

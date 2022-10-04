@@ -21,7 +21,7 @@ const Navbar = () => {
                 <FontAwesomeIcon icon="fa-solid fa-bars"/> 
             </button>
         </div>
-        <div className='nav-link text-[18px] flex flex-col items-center space-y-2 pb-5 w-[100%] md:flex-row md:w-auto md:items-center md:pb-0 md:space-y-0'>
+        <ul className='nav-link text-[18px] flex flex-col items-center space-y-2 pb-5 w-[100%] md:flex-row md:w-auto md:items-center md:pb-0 md:space-y-0'>
             <li><a href="../App.js" className='md:mr-3'>Inicio</a></li>
             <li><a href="../App.js" className='md:mr-3'>Ofertas</a></li>
             <li><a href="../App.js" className='md:mr-3'>About</a></li> 
@@ -31,7 +31,7 @@ const Navbar = () => {
                 <button className='relative flex justify-center items-center' onClick={dropdown}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" size='xl' /><ItemCount/></button> 
                 <ShoppingCart />
             </li>
-        </div>
+        </ul>
     </nav>
   )
 }

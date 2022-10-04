@@ -7,13 +7,12 @@ const ItemCount = () => {
 
     let count = 0;
 
+    state.cart.forEach(item => {
+      count += item.quantity
+  })
+
   return (
-    <div className='item-counter absolute text-black'>{
-        state.cart.forEach(item => {
-            count += item.quantity
-        })
-    }
-    {count !== 0 ? count : null}</div>
+    <div className='item-counter absolute text-black'>{count !== 0 ? count : null}</div>
   )
 }
 
