@@ -37,6 +37,27 @@
     padding: 0px 0px 10px 5px;
 }
 
+/* _-_- LOADER -_-_ */
+
+.loader {
+    height: 100%;
+    padding: 2%;
+    column-gap: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media screen and (max-width:768px) {
     .home {
         background-position: 50%;

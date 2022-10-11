@@ -12,29 +12,42 @@ const ShoppingContextProvider = (props) => {
   const [loading, setLoading] = useState(false)
   const delay = 100
 
-  const updateState = async () => {
-      const productsURL = "http://localhost:3001/products";
-      const cartURL = "http://localhost:3001/cart";
-      const resProducts = await axios.get(productsURL);
-      const resCart = await axios.get(cartURL);
-      const newProduct = await resProducts.data
-      const newCartItem = await resCart.data
+  const getData = async () => {
+    return {
+      resProducts: await axios.get("http://localhost:3001/products"),
+      resCart: await axios.get("http://localhost:3001/cart")
+    }
+  }
+
+  const updateCart = async () => {
+      const {resProducts, resCart} = await getData()
       
-      dispatch({type: TYPES.READ_STATE, payload: [newProduct, newCartItem]})
+      dispatch({type: TYPES.READ_STATE, payload: [resProducts.data, resCart.data]})
+
+      const dropdownItems = document.querySelector('.dropdown-items')
+
+      if (resCart.data.length === 0) {
+        dropdownItems.classList.remove('p-2')
+      } else {
+        dropdownItems.classList.add('p-2')
+      }
   }
   
   useEffect(() => {
     setLoading(true)
-    updateState()
+    updateCart()
     setLoading(false)
+    // eslint-disable-next-line
   }, [])
     
   const addToCart = async (id) => {
 
     setLoading(true)
 
-    let newItem = state.products.find(product => product.id === id)
-    let itemInCart = state.cart.find(item => item.id === newItem.id)
+    const {resProducts, resCart} = await getData()
+
+    let newItem = resProducts.data.find(product => product.id === id)
+    let itemInCart = resCart.data.find(item => item.id === id)
 
 
 
@@ -57,10 +70,8 @@ const ShoppingContextProvider = (props) => {
 
     await axios(endpoint, options)
 
-    // dispatch({type: TYPES.ADD_TO_CART, payload: id})
-
-    setTimeout(() => {
-      updateState()
+    setTimeout(async () => {
+      await updateCart()
       setLoading(false)
     }, delay)
   };
@@ -68,51 +79,58 @@ const ShoppingContextProvider = (props) => {
   const deleteFromCart = async (id, all = false) => {
 
     setLoading(true)
+
+    const {resCart} = await getData()
     
-    let cartItem = state.cart.find(item => item.id === id)
-    let endpoint = `http://localhost:3001/cart/${cartItem.id}`
+    let cartItem = resCart.data.find(item => item.id === id)
+    
+    if (cartItem) {
 
-    if(!all) {
-      let options = {
-        headers: { "content-type": "application/json" },
-      }
+      let endpoint = `http://localhost:3001/cart/${cartItem.id}`
 
-      if (cartItem.quantity > 1) {
-        options.method = "PUT"
-        cartItem.quantity = cartItem.quantity - 1;
-        options.data = JSON.stringify(cartItem)
+      if (!all) {
+  
+        let options = {
+          headers: { "content-type": "application/json" },
+        }
+  
+        if (cartItem.quantity > 1) {
+          options.method = "PUT"
+          cartItem.quantity = cartItem.quantity - 1;
+          options.data = JSON.stringify(cartItem)
+        } else {
+          options.method = "DELETE"
+        }
+  
+        await axios(endpoint, options)
+  
       } else {
-        options.method = "DELETE"
+  
+        let options = {
+          method: "DELETE",
+          headers: { "content-type": "application/json" }
+        }
+  
+        await axios(endpoint, options)
+  
       }
-
-      await axios(endpoint, options)
-
-      // dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})
-
-    } else {
-
-      let options = {
-        method: "DELETE",
-        headers: { "content-type": "application/json" }
-      }
-
-      await axios(endpoint, options)
-
-      // dispatch({type: TYPES.REMOVE_ALL_PRODUCTS, payload:id})
 
     }
 
-    setTimeout(() => {
-      updateState()
-      setLoading(false)
-    }, delay)
+
+      setTimeout(async () => {
+        await updateCart()
+        setLoading(false)
+      }, delay)
   };
 
   const clearCart = async () => {
 
     setLoading(true)
 
-    await state.cart.forEach(item => {
+    const {resCart} = await getData()
+
+    await resCart.data.forEach(item => {
      let endpoint = `http://localhost:3001/cart/${item.id}`
       let options = {
         method: "DELETE",
@@ -121,9 +139,8 @@ const ShoppingContextProvider = (props) => {
       axios(endpoint, options)
     });
     
-      // dispatch({type: TYPES.CLEAR_CART})
-    setTimeout(() => {
-      updateState()
+    setTimeout(async () => {
+      await updateCart()
       setLoading(false)
     }, delay)
   };
