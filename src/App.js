@@ -12,6 +12,7 @@ function App() {
 
 				{/* Componentes para productos del carrito iran dentro de ShoppingContextProvider */}
 			</ShoppingContextProvider>
+			<Carousel />
 			<Contacto />
 		</>
 	)
