@@ -3,7 +3,7 @@ import Contacto from './components/contacto/Contacto'
 import Navbar from './components/navbar/Navbar'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
 import './css/navbar.css'
-import Aboutus from './components/aboutus/Aboutus'
+import Aboutus from './components/aboutus/aboutus'
 
 
 function App() {
