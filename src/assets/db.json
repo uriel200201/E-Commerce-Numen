@@ -1,30 +1,50 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Producto A",
-            "price": 10
-        },
-        {
-            "id": 2,
-            "name": "Producto B",
-            "price": 50
-        },
-        {
-            "id": 3,
-            "name": "Producto C",
-            "price": 100
-        },
-        {
-            "id": 4,
-            "name": "Producto D",
-            "price": 150
-        },
-        {
-            "id": 5,
-            "name": "Producto E",
-            "price": 200
-        }
-    ],
-    "cart": []
+	"products": [
+		{
+			"id": 1,
+			"name": "Producto A",
+			"price": 10,
+			"rating": 5,
+			"reviewCount": 500,
+			"description": "Lorem eiusmod ipsum esse amet pariatur nulla. Eiusmod eiusmod consectetur excepteur aliqua id veniam magna enim nostrud laborum. Esse aliquip duis consequat irure do aute.",
+			"imageSrc": "http://localhost:3000/img/products/alfajores%20chocomani%20y%20frutos%20rojos.jpg"
+		},
+		{
+			"id": 2,
+			"name": "Producto B",
+			"price": 50,
+			"rating": 5,
+			"reviewCount": 500,
+			"description": "Lorem eiusmod ipsum esse amet pariatur nulla. Eiusmod eiusmod consectetur excepteur aliqua id veniam magna enim nostrud laborum. Esse aliquip duis consequat irure do aute.",
+			"imageSrc": "http://localhost:3000/img/products/alfajores%20chocomani%20y%20frutos%20rojos.jpg"
+		},
+		{
+			"id": 3,
+			"name": "Producto C",
+			"price": 100,
+			"rating": 5,
+			"reviewCount": 500,
+			"description": "Lorem eiusmod ipsum esse amet pariatur nulla. Eiusmod eiusmod consectetur excepteur aliqua id veniam magna enim nostrud laborum. Esse aliquip duis consequat irure do aute.",
+			"imageSrc": "http://localhost:3000/img/products/alfajores%20chocomani%20y%20frutos%20rojos.jpg"
+		},
+		{
+			"id": 4,
+			"name": "Producto D",
+			"price": 150,
+			"rating": 5,
+			"reviewCount": 500,
+			"description": "Lorem eiusmod ipsum esse amet pariatur nulla. Eiusmod eiusmod consectetur excepteur aliqua id veniam magna enim nostrud laborum. Esse aliquip duis consequat irure do aute.",
+			"imageSrc": "http://localhost:3000/img/products/alfajores%20chocomani%20y%20frutos%20rojos.jpg"
+		},
+		{
+			"id": 5,
+			"name": "Producto E",
+			"price": 200,
+			"rating": 5,
+			"reviewCount": 500,
+			"description": "Lorem eiusmod ipsum esse amet pariatur nulla. Eiusmod eiusmod consectetur excepteur aliqua id veniam magna enim nostrud laborum. Esse aliquip duis consequat irure do aute.",
+			"imageSrc": "http://localhost:3000/img/products/alfajores%20chocomani%20y%20frutos%20rojos.jpg"
+		}
+	],
+	"cart": []
 }

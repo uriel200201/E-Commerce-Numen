@@ -1,5 +1,6 @@
 import Contacto from './components/contacto/Contacto'
 import Navbar from './components/navbar/Navbar'
+import ProductSection from './components/navbar/ProductSection_test'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
 import './css/navbar.css'
 
@@ -10,8 +11,8 @@ function App() {
 				<Navbar />
 
 				{/* Componentes para productos del carrito iran dentro de ShoppingContextProvider */}
-				<Contacto />
 			</ShoppingContextProvider>
+			<Contacto />
 		</>
 	)
 }
