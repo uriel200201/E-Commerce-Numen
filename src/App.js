@@ -4,7 +4,6 @@ import Navbar from './components/navbar/Navbar'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
 import './css/navbar.css'
 
-
 function App() {
 	return (
 		<>
@@ -12,9 +11,8 @@ function App() {
 				<Navbar />
 
 				{/* Componentes para productos del carrito iran dentro de ShoppingContextProvider */}
-				<Carousel />
-				<Contacto />
 			</ShoppingContextProvider>
+			<Contacto />
 		</>
 	)
 }
