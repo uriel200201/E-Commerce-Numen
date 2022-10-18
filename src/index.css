@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.product {
+	transition: transform 300ms, opacity 300ms;
+	-webkit-transition: transform 300ms, opacity 300ms;
+	-moz-transition: transform 300ms, opacity 300ms;
+	-ms-transition: transform 300ms, opacity 300ms;
+	-o-transition: transform 300ms, opacity 300ms;
+}
