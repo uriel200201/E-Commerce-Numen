@@ -46,26 +46,5 @@
       "reviewCount": 0
     }
   ],
-  "cart": [
-    {
-      "id": 2,
-      "name": "Biscochuelo de Chocolate",
-      "description": "Con harina de arroz y cacao.",
-      "price": 47.99,
-      "img": "https://drive.google.com/uc?export=view&id=1w-2xpdF9XwOZDuNG0BSWi5beLbrgcVyj",
-      "rating": 0,
-      "reviewCount": 0,
-      "quantity": 1
-    },
-    {
-      "id": 1,
-      "name": "Alfajores Chocomaní y Frutos Rojos",
-      "description": "Rellenos de pasta de maní y frutos rojos. A base de harina de almendras, bañados en chocolate amargo.",
-      "price": 9.99,
-      "img": "https://drive.google.com/uc?export=view&id=1G8KGu9zYfsATMhofDaF4ef81Xh1x_N0I",
-      "rating": 0,
-      "reviewCount": 0,
-      "quantity": 1
-    }
-  ]
+  "cart": []
 }
