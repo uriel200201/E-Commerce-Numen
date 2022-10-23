@@ -1,20 +1,22 @@
-import Carousel from './components/slider/Carousel'
-import Contacto from './components/contacto/Contacto'
-import Navbar from './components/navbar/Navbar'
-import ShoppingContextProvider from './components/ShoppingContextProvider'
-import './css/navbar.css'
 import Aboutus from './components/aboutus/aboutus'
+import Contacto from './components/contacto/Contacto'
+import Header from './components/Header'
+import ProductSection from './components/navbar/ProductSection'
+import ShoppingContextProvider from './components/ShoppingContextProvider'
+import MyOwlCarousel from './components/slider/Carousel'
+import './css/header.css'
 
 
 function App() {
 	return (
 		<>
 			<ShoppingContextProvider>
-				<Navbar />
+				
+				<Header />
+				<ProductSection />
 
-				{/* Componentes para productos del carrito iran dentro de ShoppingContextProvider */}
 			</ShoppingContextProvider>
-			<Carousel />
+			<MyOwlCarousel />
 			<Aboutus />
 			<Contacto />
 		</>

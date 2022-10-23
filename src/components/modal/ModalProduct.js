@@ -1,17 +1,21 @@
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ShoppingContext } from '../ShoppingContextProvider'
+import Loader from '../Loader'
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
 }
 
 export default function ModalProduct({ open, setOpen, info, addToCart }) {
-	let { id, name, price, rating, reviewCount, description, imageSrc } = info
+	let { id, name, price, rating, reviewCount, description, img } = info
+
+	const { loading } = useContext(ShoppingContext)
 
 	return (
 		<Transition.Root show={open} as={Fragment}>
-			<Dialog as='div' className='relative z-10' onClose={setOpen}>
+			<Dialog as='div' open={open} className='relative z-30' onClose={setOpen}>
 				<Transition.Child
 					as={Fragment}
 					enter='ease-out duration-300'
@@ -53,7 +57,7 @@ export default function ModalProduct({ open, setOpen, info, addToCart }) {
 									<div className='grid w-full grid-cols-1 items-center gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8'>
 										<div className='aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5'>
 											<img
-												src={imageSrc}
+												src={img}
 												alt='alfajores chocomani y frutos rojos'
 												className='object-cover object-center'
 											/>
@@ -82,12 +86,13 @@ export default function ModalProduct({ open, setOpen, info, addToCart }) {
 																0, 1, 2, 3, 4,
 															].map(
 																(
-																	ratingProduct
+																	ratingProduct,
+																	index
 																) => (
 																	<FontAwesomeIcon
 																		icon='fa-solid fa-star'
 																		key={
-																			rating
+																			index
 																		}
 																		className={classNames(
 																			rating >
@@ -134,14 +139,15 @@ export default function ModalProduct({ open, setOpen, info, addToCart }) {
 														<p>{description}</p>
 													</div>
 													<button
-														onClick={() => {
-															addToCart(id)
+														onClick={async () => {
+															await addToCart(id)
 															setOpen(false)
 														}}
+														disabled={loading ? true : false}
 														type='button'
-														className='mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+														className='mt-6 flex w-full h-[60px] items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
 													>
-														Agregar al Carrito
+														{loading ? <Loader /> : <span>Agregar al Carrito</span>}
 													</button>
 												</form>
 											</section>

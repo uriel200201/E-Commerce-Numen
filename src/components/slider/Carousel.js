@@ -25,34 +25,34 @@ const MyOwlCarousel = () => {
   return (
     <OwlCarousel className="owl-theme bg-red-400" {...options}>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img1} />
+        <img className="py-1 rounded px-1 border border-warning" src={img1} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img2} />
+        <img className="py-1 rounded px-1 border border-warning" src={img2} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img3} />
+        <img className="py-1 rounded px-1 border border-warning" src={img3} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img4} />
+        <img className="py-1 rounded px-1 border border-warning" src={img4} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img5} />
+        <img className="py-1 rounded px-1 border border-warning" src={img5} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img6} />
+        <img className="py-1 rounded px-1 border border-warning" src={img6} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img7} />
+        <img className="py-1 rounded px-1 border border-warning" src={img7} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img8} />
+        <img className="py-1 rounded px-1 border border-warning" src={img8} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img class="py-1 rounded px-1 border border-warning" src={img9} />
+        <img className="py-1 rounded px-1 border border-warning" src={img9} />
       </div>
       <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-       <img class="py-1 rounded px-1 border border-warning" src={img10} />
+        <img className="py-1 rounded px-1 border border-warning" src={img10} />
       </div>
     </OwlCarousel>
   );
