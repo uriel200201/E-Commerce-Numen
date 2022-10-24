@@ -1,6 +1,10 @@
 
+import React from 'react';
+import Footer from './components/Footer';
 function App() {
-	return <div className='App'>Hello word</div>
+return (
+	<Footer />
+);
 }
 
-export default App
+export default App;
