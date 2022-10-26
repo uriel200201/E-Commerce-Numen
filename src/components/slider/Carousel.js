@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -14,45 +14,70 @@ import img8 from '../../img/img8.jpg'
 import img9 from '../../img/img9.jpg'
 import img10 from '../../img/img10.jpg' 
 
+
+
 const MyOwlCarousel = () => {
+
+  const [items, setItems] = useState(1)
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 512) {
+      setItems(1)
+    } else if (window.innerWidth < 768) {
+      setItems(2)
+    } else {
+      setItems(3)
+    }
+  })
+
+  useEffect(() => {
+    if (window.innerWidth < 512) {
+      setItems(1)
+    } else if (window.innerWidth < 768) {
+      setItems(2)
+    } else {
+      setItems(3)
+    }
+  }, [])
+
   const options = {
     loop: true,
     margin: 15,
-    items: 3,
+    items: items,
     autoplay: true
-};
+  };
   
   return (
-    <OwlCarousel className="owl-theme bg-red-400" {...options}>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img1} />
+    <OwlCarousel id="offers" className="owl-theme py-12 px-10 bg-red-400" {...options}>
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img1} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img2} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img2} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img3} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img3} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img4} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img4} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img5} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img5} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img6} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img6} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img7} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img7} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img8} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img8} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img9} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img9} alt="" />
       </div>
-      <div className='flex flex-col md:flex-row md:items-center md:justify-around py-12'>
-        <img className="py-1 rounded px-1 border border-warning" src={img10} />
+      <div className='bg-white rounded-[10px] p-1'>
+        <img className="rounded-[7px]" src={img10} alt="" />
       </div>
     </OwlCarousel>
   );

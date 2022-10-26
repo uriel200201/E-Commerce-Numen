@@ -10,7 +10,7 @@ const Aboutus = () => {
   return (
 
   
-    <section className='history-container'>
+    <section id='about' className='history-container'>
       <div className='title-container'>
             <h1 className='history-title'>NUESTRA HISTORIA</h1>
             <img className='history-photo' src= {pasteleros} alt=""></img> 

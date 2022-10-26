@@ -14,8 +14,10 @@ const Loader = () => {
       }
       setDots(dotString)
       if (dot_count < 5) {
+        // eslint-disable-next-line
         dot_count += 1
       } else {
+        // eslint-disable-next-line
         dot_count = 1
       }
     }, 50)

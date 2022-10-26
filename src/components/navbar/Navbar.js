@@ -86,10 +86,10 @@ const Navbar = () => {
             </div>
             <ul className='nav-link text-[18px] flex flex-col items-center space-y-2 pb-5 w-[100%] md:flex-row md:w-auto md:items-center md:pb-0 md:space-y-0'>
                 <li><a href="../App.js" className='md:mr-3 hover:underline'>Inicio</a></li>
-                <li><a href="../App.js" className='md:mr-3 hover:underline'>Ofertas</a></li>
-                <li><a href="../App.js" className='md:mr-3 hover:underline'>About</a></li>
-                <li><a href="../App.js" className='md:mr-3 hover:underline'>Producto</a></li>
-                <li><a href="#Contacto" className='md:mr-3 hover:underline'>Contacto</a></li>
+                <li><a href="#products" className='md:mr-3 hover:underline'>Productos</a></li>
+                <li><a href="#offers" className='md:mr-3 hover:underline'>Ofertas</a></li>
+                <li><a href="#about" className='md:mr-3 hover:underline'>About</a></li>
+                <li><a href="#contact" className='md:mr-3 hover:underline'>Contacto</a></li>
                 <li className='dropdown-cart flex justify-center relative md:mr-3 md:justify-end'>
                     <button className='relative flex justify-center items-center' onClick={dropdown}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" size='xl' /><ItemCount /></button>
                     <ShoppingCart />

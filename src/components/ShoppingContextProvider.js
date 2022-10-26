@@ -23,14 +23,6 @@ const ShoppingContextProvider = (props) => {
       const {resProducts, resCart} = await getData()
       
       dispatch({type: TYPES.READ_STATE, payload: [resProducts.data, resCart.data]})
-
-      const dropdownItems = document.querySelector('.dropdown-items')
-
-      if (resCart.data.length === 0) {
-        dropdownItems.classList.remove('p-2')
-      } else {
-        dropdownItems.classList.add('p-2')
-      }
   }
   
   useEffect(() => {

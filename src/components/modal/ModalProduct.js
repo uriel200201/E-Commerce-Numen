@@ -58,7 +58,7 @@ export default function ModalProduct({ open, setOpen, info, addToCart }) {
 										<div className='aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5'>
 											<img
 												src={img}
-												alt='alfajores chocomani y frutos rojos'
+												alt={name}
 												className='object-cover object-center'
 											/>
 										</div>
@@ -110,7 +110,7 @@ export default function ModalProduct({ open, setOpen, info, addToCart }) {
 															{rating} out of 5
 															stars
 														</p>
-														<p className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>
+														<p className='ml-3 text-sm font-medium text-red-400 hover:text-red-700'>
 															{reviewCount}{' '}
 															reviews
 														</p>
@@ -145,7 +145,7 @@ export default function ModalProduct({ open, setOpen, info, addToCart }) {
 														}}
 														disabled={loading ? true : false}
 														type='button'
-														className='mt-6 flex w-full h-[60px] items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+														className='mt-6 flex w-full h-[60px] items-center justify-center rounded-md border border-transparent border-red-400 border-[2px] text-red-400 py-3 px-8 text-base font-medium text-white hover:bg-red-400 hover:text-white disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
 													>
 														{loading ? <Loader /> : <span>Agregar al Carrito</span>}
 													</button>

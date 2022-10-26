@@ -9,8 +9,8 @@ const ProductSection = () => {
 
   const {state , addToCart} = useContext(ShoppingContext)
   return (
-    <section className='section-products text-center bg-red-300'>
-        <h2 className='py-[40px] text-xl'>Nuestros productos</h2>
+    <section id='products' className='section-products text-center bg-red-300'>
+        <h2 className='py-[40px] text-xl'>Nuestras delicias</h2>
         <ul className='flex flex-wrap justify-evenly gap-y-5'>
           {state.products.map((product, index) => <Product key={product.id} index={index} product={product} addToCart={addToCart}/>)}
         </ul>
