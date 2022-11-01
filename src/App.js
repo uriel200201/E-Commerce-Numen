@@ -1,5 +1,5 @@
+import Footer from './components/Footer'
 import Aboutus from './components/aboutus/aboutus'
-import Contacto from './components/contacto/Contacto'
 import Header from './components/Header'
 import ProductSection from './components/navbar/ProductSection'
 import ShoppingContextProvider from './components/ShoppingContextProvider'
@@ -18,7 +18,7 @@ function App() {
 			</ShoppingContextProvider>
 			<MyOwlCarousel />
 			<Aboutus />
-			<Contacto />
+			<Footer />
 		</>
 	)
 }
