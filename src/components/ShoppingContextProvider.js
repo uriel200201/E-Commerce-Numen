@@ -14,8 +14,8 @@ const ShoppingContextProvider = (props) => {
 
   const getData = async () => {
     return {
-      resProducts: await axios.get("http://localhost:3001/products"),
-      resCart: await axios.get("http://localhost:3001/cart")
+      resProducts: await axios.get("https://json-server-snowy-seven.vercel.app/products"),
+      resCart: await axios.get("https://json-server-snowy-seven.vercel.app/cart")
     }
   }
 
@@ -50,7 +50,7 @@ const ShoppingContextProvider = (props) => {
 
     if (!itemInCart) {
         options.method = "POST"
-        endpoint = `http://localhost:3001/cart`
+        endpoint = `https://json-server-snowy-seven.vercel.app/cart`
         newItem.quantity = 1;
         options.data = JSON.stringify(newItem)
     } else {
@@ -78,7 +78,7 @@ const ShoppingContextProvider = (props) => {
     
     if (cartItem) {
 
-      let endpoint = `http://localhost:3001/cart/${cartItem.id}`
+      let endpoint = `https://json-server-snowy-seven.vercel.app/cart/${cartItem.id}`
 
       if (!all) {
   
@@ -123,7 +123,7 @@ const ShoppingContextProvider = (props) => {
     const {resCart} = await getData()
 
     await resCart.data.forEach(item => {
-     let endpoint = `http://localhost:3001/cart/${item.id}`
+     let endpoint = `https://json-server-snowy-seven.vercel.app/cart/${item.id}`
       let options = {
         method: "DELETE",
         headers: { "content-type": "application/json" }
