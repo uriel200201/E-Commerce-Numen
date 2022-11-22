@@ -15,7 +15,7 @@ const ShoppingContextProvider = (props) => {
 	const [cart, setCart] = useLocalStorage('cart', [])
 	const delay = 100
 
-	const getData = async (deleteAll = false) => {
+	const getData = async () => {
 		return {
 			resProducts: await axios.get(
 				'https://json-server-snowy-seven.vercel.app/products'
@@ -31,7 +31,7 @@ const ShoppingContextProvider = (props) => {
 			type: TYPES.READ_STATE,
 			payload: [resProducts.data, resCart],
 		})
-		console.log(resCart)
+		//console.log(resCart)
 	}
 
 	useEffect(() => {
@@ -45,7 +45,7 @@ const ShoppingContextProvider = (props) => {
 		setLoading(true)
 
 		const { resProducts, resCart } = await getData()
-		console.log(resCart)
+		//console.log(resCart)
 
 		let newItem = resProducts.data.find((product) => product.id === id)
 		let itemInCart = resCart.find((item) => item.id === id)
@@ -71,9 +71,9 @@ const ShoppingContextProvider = (props) => {
 		const { resCart } = await getData()
 
 		let cartItem = resCart.find((item) => item.id === id)
-		console.log(cartItem)
+		//console.log(cartItem)
 		if (cartItem) {
-			console.log({ all, quantity: cartItem.quantity })
+			//console.log({ all, quantity: cartItem.quantity })
 			if (!all && cartItem.quantity > 1) {
 				resCart.map((item) =>
 					Number(item.id) === Number(cartItem.id)
@@ -85,12 +85,12 @@ const ShoppingContextProvider = (props) => {
 			} else {
 				const newCart = resCart.filter((item) => item.id != cartItem.id)
 				if (newCart.length > 0) {
-					console.log(newCart)
+					//console.log(newCart)
 					setCart(newCart)
 				} else {
 					const cart = resCart.pop()
 					setCart(cart)
-					localStorage.removeItem('cart')
+					//localStorage.removeItem('cart')
 				}
 			}
 		}

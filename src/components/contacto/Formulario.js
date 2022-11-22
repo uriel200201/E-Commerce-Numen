@@ -80,26 +80,25 @@ const Formulario = () => {
 									resetForm()
 									setMsgOk(true)
 									setTimeout(() => setMsgOk(false), 5000)
-									console.log('Formulario enviado')
+									//console.log('Formulario enviado')
 								},
 								(error) => {
 									resetForm()
 									setMsgError(true)
 									setTimeout(() => setMsgError(false), 5000)
-									console.log(
+									/*console.log(
 										'No se pudo enviar ' + error.text
-									)
+									)*/
 								}
 							)
 					} catch {
 						resetForm()
 						setMsgError(true)
 						setTimeout(() => setMsgError(false), 5000)
-						console.log('No se pudo enviar ')
+						//console.log('No se pudo enviar ')
 					}
 				}}
-				validationSchema={basicSchema}
-			>
+				validationSchema={basicSchema}>
 				{() => (
 					<Form id='form' ref={form}>
 						<div className='grid md:grid-cols-2 md:gap-x-3 pb-3'>
