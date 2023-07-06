@@ -83,7 +83,9 @@ const ShoppingContextProvider = (props) => {
 
 				setCart(resCart)
 			} else {
-				const newCart = resCart.filter((item) => item.id != cartItem.id)
+				const newCart = resCart.filter(
+					(item) => item.id !== cartItem.id
+				)
 				if (newCart.length > 0) {
 					//console.log(newCart)
 					setCart(newCart)
