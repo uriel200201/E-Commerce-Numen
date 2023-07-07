@@ -8,7 +8,7 @@ const ShoppingCart = () => {
 	const { state, deleteFromCart, clearCart, loading } =
 		useContext(ShoppingContext)
 
-	console.log(state.cart.length !== 0)
+	console.log(state.cart)
 
 	return (
 		<>

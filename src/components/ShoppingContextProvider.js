@@ -15,6 +15,8 @@ const ShoppingContextProvider = (props) => {
 	const [cart, setCart] = useLocalStorage('cart', [])
 	const delay = 100
 
+	console.log(cart)
+
 	const getData = async () => {
 		return {
 			resProducts: await axios.get(
@@ -92,7 +94,7 @@ const ShoppingContextProvider = (props) => {
 				} else {
 					const cart = resCart.pop()
 					setCart(cart)
-					//localStorage.removeItem('cart')
+					localStorage.removeItem('cart')
 				}
 			}
 		}
